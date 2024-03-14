@@ -10,7 +10,7 @@ env:
 jobs:
   playwright:
     runs-on: ubuntu-latest
-    name: "Tests
+    name: "Tests"
     defaults:
       run:
         working-directory: "tests/"
