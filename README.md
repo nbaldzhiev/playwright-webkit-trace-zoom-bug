@@ -2,7 +2,7 @@
 
 To reproduce, either:
 
-* open up a branch and push a commit in it; or
+* open up a Pull Request; or
 * ask to be a collaborator and manually trigger the workflow.
 
 Then:
