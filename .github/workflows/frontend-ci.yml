@@ -1,0 +1,37 @@
+name: E2E tests
+
+on:
+  pull_request:
+
+env:
+  NODE_VERSION: "16.x"
+
+jobs:
+  playwright:
+    runs-on: ubuntu-20.04-4cpus
+    name: "webkit E2E v2"
+    defaults:
+      run:
+        working-directory: "e2e-tests/"
+    steps:
+      - name: Checkout project
+        uses: actions/checkout@v4
+      - name: Use Node.js ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+      - name: Install dependencies
+        run: yarn
+      - name: Install Playwright webkit
+        run: npx playwright install webkit --with-deps
+      - name: Run Playwright tests
+        run: xvfb-run npx playwright test --project=webkit --headed
+      - name: Generate HTML report
+        if: always()
+        run: |
+          npx playwright merge-reports --reporter=html ./blob-report
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: playwright-html
+          path: e2e-tests/playwright-report/
