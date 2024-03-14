@@ -8,7 +8,7 @@ env:
 
 jobs:
   playwright:
-    runs-on: ubuntu-20.04-4cpus
+    runs-on: ubuntu-latest
     name: "webkit E2E v2"
     defaults:
       run:
