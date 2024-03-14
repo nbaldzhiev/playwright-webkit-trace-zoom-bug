@@ -1,9 +1,11 @@
-# Repo to reproduce Playwright issue #<fill once opened>
+# Repo to reproduce Playwright issue #29943
 
-To reproduce, either:
+To reproduce, ask to be collaborator and, either:
 
 * open up a Pull Request; or
-* ask to be a collaborator and manually trigger the workflow.
+* manually trigger the workflow.
+
+...or fork.
 
 Then:
 * a GitHub Actions workflow will get triggered `.github/workflows/frontend-ci.yml`, which runs a single test in Webkit;
