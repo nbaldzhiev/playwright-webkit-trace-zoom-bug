@@ -1,4 +1,4 @@
-name: E2E tests
+name: Tests
 
 on:
   workflow_dispatch:
@@ -10,10 +10,10 @@ env:
 jobs:
   playwright:
     runs-on: ubuntu-latest
-    name: "webkit E2E v2"
+    name: "Tests
     defaults:
       run:
-        working-directory: "e2e-tests/"
+        working-directory: "tests/"
     steps:
       - name: Checkout project
         uses: actions/checkout@v4
@@ -35,4 +35,4 @@ jobs:
         if: always()
         with:
           name: playwright-html
-          path: e2e-tests/playwright-report/
+          path: tests/playwright-report/
